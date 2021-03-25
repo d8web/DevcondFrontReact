@@ -1,4 +1,4 @@
-const baseUrl = 'https://api.b7web.com.br/devcond/api/admin';
+const baseUrl = 'https://api.b7web.com.br/devcond/api';
 
 const request = async (method, endpoint, params, token = null) => {
 
@@ -17,9 +17,13 @@ const request = async (method, endpoint, params, token = null) => {
     case 'delete':
       body = JSON.stringify(params);
     break;
+    default:;
   }
 
-  let headers = {"Content-Type" : "application/json"}
+  let headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
 
   if(token) {
     headers.Authorization = `Bearer ${token}`
@@ -41,9 +45,15 @@ export default () => {
       let json = await request('post', '/auth/validate', {}, token)
       return json
     },
-    login: async (email, password) => {
-      let json = await request('post', '/auth/login', {email, password});
+    login: async (cpf, password) => {
+      let json = await request('post', '/auth/login', {cpf, password});
       return json;
+    },
+    logout: async () => {
+      let token = localStorage.getItem('token');
+      let json = await request('post', '/auth/logout', {}, token)
+      localStorage.removeItem('token')
+      return json
     }
   }
 }

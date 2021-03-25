@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// Continue aula Verificação de login
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
+
+// Continue: Avisos 1
 
 const loading = (
   <div className="pt-3 text-center">
@@ -13,7 +14,7 @@ const loading = (
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 
 // Pages
-const Login = React.lazy(() => import('./views/pages/login/Login'));
+const Login = React.lazy(() => import('./views/Login'));
 
 const App = () => {
   return(
