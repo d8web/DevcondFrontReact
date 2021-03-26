@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
 
-// Continue: Avisos 1
+// Continue: Avisos 4
 
 const loading = (
   <div className="pt-3 text-center">
