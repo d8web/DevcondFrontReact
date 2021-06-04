@@ -15,9 +15,8 @@ const TheSidebar = () => {
 
   return (
     <CSidebar>
-      <img src="" className="mt-2 mb-3 ml-auto mr-auto" width="70%"/>
+      <h3 className="mb-4 mt-4 ml-auto mr-auto">Logo</h3>
       <CSidebarNav>
-
         <CCreateElement
           items={navigation}
           components={{

@@ -28,24 +28,23 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const handleLoginButton = async () => {
-    if(cpf && password)
-    {
+
+    if(cpf && password) {
       setLoading(true);
       const result = await api.login(cpf, password);
       setLoading(false);
 
-      if(!result.error)
-      {
+      if(!result.error) {
         localStorage.setItem('token', result.token);
         history.push('/');
-      }
-      else {
+      } else {
         setError(result.error);
       }
-    }
-    else {
+
+    } else {
       setError('Preencha todos os campos!');
     }
+
   }
 
   return (
@@ -70,7 +69,13 @@ const Login = () => {
                           <CIcon name="cil-user" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput disabled={loading} type="text" placeholder="Cpf" value={cpf} onChange={event=>setCpf(event.target.value)} />
+                      <CInput
+                        disabled={loading}
+                        type="text"
+                        placeholder="Cpf"
+                        value={cpf}
+                        onChange={event=>setCpf(event.target.value)}
+                      />
                     </CInputGroup>
 
                     <CInputGroup className="mb-4">
@@ -79,7 +84,13 @@ const Login = () => {
                           <CIcon name="cil-lock-locked" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput disabled={loading} type="password" placeholder="Senha" value={password} onChange={event => setPassword(event.target.value)} />
+                      <CInput
+                        disabled={loading}
+                        type="password"
+                        placeholder="Senha"
+                        value={password}
+                        onChange={event => setPassword(event.target.value)}
+                      />
                     </CInputGroup>
 
                     <CRow>

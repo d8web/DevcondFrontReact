@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
-
-// Continue: Avisos 4
 
 const loading = (
   <div className="pt-3 text-center">
@@ -30,3 +28,4 @@ const App = () => {
 }
 
 export default App;
+// Continue avisos: 4
